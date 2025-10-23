@@ -18,6 +18,13 @@ config/icon="res://icon.svg"
 
 project/assembly_name="RawPremiere"
 
+[file_customization]
+
+folder_colors={
+"res://Temp/": "gray",
+"res://Test/": "gray"
+}
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
