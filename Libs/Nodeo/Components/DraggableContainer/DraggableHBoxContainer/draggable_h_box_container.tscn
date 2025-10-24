@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cav453c0py0tj"]
+
+[ext_resource type="Script" uid="uid://dfwfbubft4tv5" path="res://Libs/Nodeo/Components/DraggableContainer/DraggableHBoxContainer/DraggableHBoxContainer.cs" id="1_2fthq"]
+
+[node name="DraggableHBoxContainer" type="HBoxContainer"]
+scale = Vector2(2.805, 2.805)
+script = ExtResource("1_2fthq")

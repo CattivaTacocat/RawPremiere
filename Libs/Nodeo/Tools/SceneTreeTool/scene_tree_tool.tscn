@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b33tnkmsvh3qh"]
+
+[ext_resource type="Script" uid="uid://dduir31hw1jiq" path="res://Libs/Nodeo/Tools/SceneTreeTool/SceneTreeTool.cs" id="1_mr4iw"]
+[ext_resource type="PackedScene" uid="uid://edklcx7ti1bk" path="res://Libs/Nodeo/Components/Cutto/cutto_controller.tscn" id="2_l86wa"]
+
+[node name="SceneTreeTool" type="Node" node_paths=PackedStringArray("N_CuttoController")]
+script = ExtResource("1_mr4iw")
+N_CuttoController = NodePath("CuttoController")
+
+[node name="CuttoController" parent="." instance=ExtResource("2_l86wa")]

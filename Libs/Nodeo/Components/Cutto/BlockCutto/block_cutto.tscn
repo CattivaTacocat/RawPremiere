@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6h8swdjdyjqb"]
+
+[ext_resource type="Script" uid="uid://c0jmrdlgfabbb" path="res://Libs/Nodeo/Components/Cutto/BlockCutto/BlockCutto.cs" id="1_30rxq"]
+[ext_resource type="Shader" uid="uid://0uepcyvmolbj" path="res://Libs/Nodeo/Assets/Shaders/shd_cutto.gdshader" id="1_pqp1l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pqp1l"]
+shader = ExtResource("1_pqp1l")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/transition_type = 0
+shader_parameter/position = Vector2(0.5, 0.5)
+shader_parameter/invert = true
+shader_parameter/grid_size = Vector2(1, 1)
+shader_parameter/rotation_angle = 0.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 6
+shader_parameter/shape_feather = 0.1
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(10, 10)
+
+[node name="BlockCutto" type="CanvasLayer" node_paths=PackedStringArray("N_CuttoContainer")]
+script = ExtResource("1_30rxq")
+P_Duration = 1.0
+P_IsTiled = true
+N_CuttoContainer = NodePath("CuttoContainer")
+
+[node name="CuttoContainer" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_pqp1l")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

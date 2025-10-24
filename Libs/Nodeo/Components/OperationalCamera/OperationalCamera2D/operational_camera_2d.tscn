@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs6dljaxyupal"]
+
+[ext_resource type="Script" uid="uid://otoqawwug6pw" path="res://Libs/Nodeo/Components/OperationalCamera/OperationalCamera2D/OperationalCamera2D.cs" id="1_rx8h5"]
+
+[node name="OperationalCamera2D" type="Camera2D"]
+script = ExtResource("1_rx8h5")

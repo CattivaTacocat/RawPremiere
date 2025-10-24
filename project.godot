@@ -14,6 +14,10 @@ config/name="RawPremiere"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameInitLoader="*res://GameInitLoader.cs"
+
 [dotnet]
 
 project/assembly_name="RawPremiere"

@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://ibrhdeh6ylxf"]
+
+[ext_resource type="Shader" uid="uid://0uepcyvmolbj" path="res://Libs/Nodeo/Assets/Shaders/shd_cutto.gdshader" id="1_ibfu6"]
+[ext_resource type="Texture2D" uid="uid://3frvxcr8jqi3" path="res://Libs/Nodeo/Assets/Textures/white.tres" id="2_8deyl"]
+[ext_resource type="Script" uid="uid://igshbcblq0us" path="res://Libs/Nodeo/Components/Cutto/LineCutto/LineCutto.cs" id="2_xpr1j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8deyl"]
+shader = ExtResource("1_ibfu6")
+shader_parameter/use_sprite_alpha = true
+shader_parameter/use_transition_texture = false
+shader_parameter/display_size = Vector2(1920, 1080)
+shader_parameter/transition_type = 2
+shader_parameter/position = Vector2(0, 0)
+shader_parameter/invert = true
+shader_parameter/grid_size = Vector2(1, 120)
+shader_parameter/rotation_angle = 60.0
+shader_parameter/stagger = Vector2(0, 0)
+shader_parameter/stagger_frequency = Vector2i(2, 2)
+shader_parameter/flip_frequency = Vector2i(1, 1)
+shader_parameter/basic_feather = 0.0
+shader_parameter/use_mask_size = false
+shader_parameter/mask_size = Vector2(100, 100)
+shader_parameter/edges = 3
+shader_parameter/shape_feather = 0.0
+shader_parameter/sectors = 1
+shader_parameter/clock_feather = 0.0
+shader_parameter/progress = 0.0
+shader_parameter/progress_bias = Vector2(0, 0.5)
+
+[node name="LineCutto" type="CanvasLayer" node_paths=PackedStringArray("N_CuttoContainer")]
+script = ExtResource("2_xpr1j")
+P_OverlayTexture = ExtResource("2_8deyl")
+N_CuttoContainer = NodePath("CuttoContainer")
+
+[node name="CuttoContainer" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_8deyl")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

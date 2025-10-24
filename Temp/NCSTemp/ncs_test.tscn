@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnmapd8ehb6i1"]
+
+[ext_resource type="Script" uid="uid://bhvtfabrhvsvs" path="res://Temp/NCSTemp/NcsTest.cs" id="1_5uxxf"]
+
+[node name="NCSTest" type="Node" node_paths=PackedStringArray("Player")]
+script = ExtResource("1_5uxxf")
+Player = NodePath("")

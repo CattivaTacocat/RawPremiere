@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd0iik567p5yq"]
+
+[ext_resource type="Script" uid="uid://cnsti087std80" path="res://Libs/Nodeo/Components/Cutto/SimpleCutto/SimpleCutto.cs" id="1_tah7v"]
+[ext_resource type="Texture2D" uid="uid://3frvxcr8jqi3" path="res://Libs/Nodeo/Assets/Textures/white.tres" id="2_8cpl2"]
+
+[node name="SimpleCutto" type="CanvasLayer" node_paths=PackedStringArray("N_CuttoContainer")]
+script = ExtResource("1_tah7v")
+P_OverlayTexture = ExtResource("2_8cpl2")
+N_CuttoContainer = NodePath("CuttoContainer")
+
+[node name="CuttoContainer" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

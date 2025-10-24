@@ -1,11 +1,14 @@
 using Godot;
 using System;
+using Lombok.NET;
 
-public partial class Player : Node
+namespace DeadDog.RawPremiere.Player;
+
+[NotifyPropertyChanged]
+public partial class Player : Node2D
 {
-    public override void _Input(InputEvent @event)
-    {
-        if (@event.IsActionPressed("ui_cancel"))
-            GetChild(0).QueueFree();
-    }
+    [Property]
+    private bool _isDead;
+    [Property(PropertyChangeType = PropertyChangeType.PropertyChanged)]
+    private int _score;
 }

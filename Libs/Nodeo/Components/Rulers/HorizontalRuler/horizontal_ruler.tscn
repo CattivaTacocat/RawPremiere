@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvai6vbmjyabo"]
+
+[ext_resource type="Script" uid="uid://xy3j8fteqrpw" path="res://Libs/Nodeo/Components/Rulers/HorizontalRuler/HorizontalRuler.cs" id="1_4enbv"]
+
+[node name="HorizontalRuler" type="ColorRect"]
+custom_minimum_size = Vector2(0, 24)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_4enbv")
+P_MaxCoordinate = 100.0
+P_MinCoordinate = -100.0
+P_CenterCoordinate = 7.955
+P_CurrentZoom = 16.6
+P_CurrentMode = 2

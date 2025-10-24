@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://ppfnu4s4a20w"]
+
+[ext_resource type="Script" uid="uid://f4066ir4r868" path="res://Temp/NCSTemp/Player/PlayerEntity.cs" id="1_4m8gb"]
+[ext_resource type="Script" uid="uid://dfux1hopx3ecx" path="res://Temp/NCSTemp/Player/PlayerView.cs" id="1_kjuyh"]
+[ext_resource type="Texture2D" uid="uid://c82akky5upkkw" path="res://icon.svg" id="2_e158j"]
+[ext_resource type="Script" uid="uid://qe0cxb62shbf" path="res://Temp/NCSTemp/Player/PlayerMovementSys.cs" id="3_e158j"]
+[ext_resource type="Script" uid="uid://00ha8x6xwv5u" path="res://Temp/NCSTemp/Player/PlayerHealthSys.cs" id="5_b5e7r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dykf"]
+size = Vector2(128, 129)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_64fyb"]
+radius = 44.0
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_4m8gb")
+
+[node name="View" type="Node2D" parent="." node_paths=PackedStringArray("Player")]
+script = ExtResource("1_kjuyh")
+Player = NodePath("..")
+
+[node name="Sprite2D" type="CharacterBody2D" parent="View"]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="View/Sprite2D"]
+texture = ExtResource("2_e158j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="View/Sprite2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_1dykf")
+
+[node name="Area2D" type="Area2D" parent="View"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="View/Area2D"]
+shape = SubResource("CircleShape2D_64fyb")
+debug_color = Color(0.91052437, 0.23924074, 0.45561737, 0.41960785)
+
+[node name="Sys" type="Node" parent="."]
+
+[node name="PlayerMovementSys" type="Node" parent="Sys" node_paths=PackedStringArray("Player")]
+script = ExtResource("3_e158j")
+Player = NodePath("../..")
+
+[node name="PlayerHealthSys" type="Node" parent="Sys" node_paths=PackedStringArray("Player", "Collision")]
+script = ExtResource("5_b5e7r")
+Player = NodePath("../..")
+Collision = NodePath("../../View/Area2D")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqfvo24mgxlbd"]
+
+[ext_resource type="Script" path="res://Temp/NCSTemp/HurtComp.cs" id="1_neehc"]
+
+[node name="HurtComp" type="Area2D"]
+script = ExtResource("1_neehc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

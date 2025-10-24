@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7hk0bljrddf1"]
+
+[ext_resource type="Script" uid="uid://cjgmmn4fgqf31" path="res://Libs/Nodeo/Components/Lines/ConnectingLine2D/View/ConnectingLine2D.cs" id="1_c6so0"]
+[ext_resource type="Texture2D" uid="uid://lro3ti4jawes" path="res://Libs/Nodeo/Assets/Sprites/spr_start-point.svg" id="2_u6gb3"]
+[ext_resource type="Texture2D" uid="uid://kfb542ock155" path="res://Libs/Nodeo/Assets/Sprites/spr_end-point.svg" id="3_x7ds8"]
+
+[node name="ConnectingLine2D" type="Node2D" node_paths=PackedStringArray("N_Line", "N_StartIcon", "N_EndIcon")]
+script = ExtResource("1_c6so0")
+StartIcon = ExtResource("2_u6gb3")
+EndIcon = ExtResource("3_x7ds8")
+N_Line = NodePath("Line")
+N_StartIcon = NodePath("StartIcon")
+N_EndIcon = NodePath("EndIcon")
+
+[node name="Line" type="Line2D" parent="."]
+
+[node name="StartIcon" type="Sprite2D" parent="."]
+
+[node name="EndIcon" type="Sprite2D" parent="."]
