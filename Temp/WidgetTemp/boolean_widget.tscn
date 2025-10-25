@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://b070utoni4ewc"]
+
+[node name="BooleanWidget" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="View" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Value" type="CheckBox" parent="View"]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+
+[node name="DisplayValue" type="Label" parent="View"]
+layout_mode = 0
+offset_right = 68.5625
+offset_bottom = 31.0
+
+[node name="Name" type="Label" parent="View"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Comp" type="Node" parent="."]
+
+[node name="WidgetComp" type="Node" parent="Comp"]
+
+[node name="HoverComp" type="Node" parent="Comp"]
+
+[node name="Sys" type="Node" parent="."]
+
+[node name="BoolWidgetSys" type="Node" parent="Sys"]
+
+[node name="KeyboardBoolSys" type="Node" parent="Sys"]
+
+[node name="HoverSys" type="Node" parent="Sys"]

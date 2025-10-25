@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvkx20aouubyf"]
+
+[ext_resource type="PackedScene" uid="uid://c4e6dj7v6m5a6" path="res://Temp/WidgetTemp/enum_elem_widget.tscn" id="1_1oejd"]
+
+[node name="EnumArrayWidget" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="View" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="View"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EnumElemWidget" parent="View/VBoxContainer" instance=ExtResource("1_1oejd")]
+layout_mode = 2
+
+[node name="Add" type="Button" parent="View"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Comp" type="Node" parent="."]
+
+[node name="WidgetComp" type="Node" parent="Comp"]
+
+[node name="Sys" type="Node" parent="."]
+
+[node name="EnumArraySys" type="Node" parent="Sys"]
+
+[node name="ArrayUpdateSys" type="Node" parent="Sys"]

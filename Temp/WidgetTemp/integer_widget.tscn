@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://wgrft8ka0jdo"]
+
+[node name="IntegerWidget" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="View" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="DisplayValue" type="LineEdit" parent="View"]
+layout_mode = 0
+offset_right = 68.5625
+offset_bottom = 31.0
+
+[node name="Name" type="Label" parent="View"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Comp" type="Node" parent="."]
+
+[node name="WidgetComp" type="Node" parent="Comp"]
+
+[node name="ValueRangeComp" type="Node" parent="Comp"]
+
+[node name="MouseValueChangeComp" type="Node" parent="Comp"]
+
+[node name="Sys" type="Node" parent="."]
+
+[node name="IntegerWidgetSys" type="Node" parent="Sys"]
+
+[node name="ExpressionSys" type="Node" parent="Sys"]
+
+[node name="IntegerRestraintSys" type="Node" parent="Sys"]
+
+[node name="MouseValueChangeSys" type="Node" parent="Sys"]

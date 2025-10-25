@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://drbxkof6a7qs6"]
+
+[ext_resource type="PackedScene" uid="uid://c0tepwb3pikv1" path="res://Temp/WidgetTemp/line_text_widget.tscn" id="1_lr36t"]
+
+[node name="StringElemWidget" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="View" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LineTextWidget" parent="View" instance=ExtResource("1_lr36t")]
+layout_mode = 1
+
+[node name="Remove" type="Button" parent="View"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Comp" type="Node" parent="."]
+
+[node name="ArrayElemComp" type="Node" parent="Comp"]

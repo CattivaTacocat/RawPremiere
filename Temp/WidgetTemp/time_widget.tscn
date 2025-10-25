@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca5nj4cqx18lm"]
+
+[ext_resource type="PackedScene" uid="uid://wgrft8ka0jdo" path="res://Temp/WidgetTemp/integer_widget.tscn" id="1_te5lv"]
+
+[node name="TimeWidget" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="View" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Minutes" parent="View" instance=ExtResource("1_te5lv")]
+layout_mode = 1
+
+[node name="Seconds" parent="View" instance=ExtResource("1_te5lv")]
+layout_mode = 1
+
+[node name="MillionSeconds" parent="View" instance=ExtResource("1_te5lv")]
+layout_mode = 1
+
+[node name="Sys" type="Node" parent="."]
+
+[node name="IntegerLoopSysM" type="Node" parent="Sys"]
+
+[node name="IntegerLoopSysS" type="Node" parent="Sys"]
+
+[node name="IntegerLoopSysMS" type="Node" parent="Sys"]

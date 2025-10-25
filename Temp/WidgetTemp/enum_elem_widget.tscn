@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4e6dj7v6m5a6"]
+
+[ext_resource type="PackedScene" uid="uid://dg10dpek26akk" path="res://Temp/WidgetTemp/enum_widget.tscn" id="1_etmqv"]
+
+[node name="EnumElemWidget" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="View" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Index" type="Label" parent="View"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="EnumWidget" parent="View" instance=ExtResource("1_etmqv")]
+layout_mode = 1
+
+[node name="Remove" type="Button" parent="View"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="Comp" type="Node" parent="."]
+
+[node name="ArrayElemComp" type="Node" parent="Comp"]

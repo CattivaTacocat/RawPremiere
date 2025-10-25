@@ -1,7 +1,65 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnmapd8ehb6i1"]
+[gd_scene load_steps=4 format=3 uid="uid://dnmapd8ehb6i1"]
 
 [ext_resource type="Script" uid="uid://bhvtfabrhvsvs" path="res://Temp/NCSTemp/NcsTest.cs" id="1_5uxxf"]
+[ext_resource type="PackedScene" uid="uid://ppfnu4s4a20w" path="res://Temp/NCSTemp/Player/player.tscn" id="2_k1gwt"]
+[ext_resource type="PackedScene" uid="uid://cyqollcvpnf2t" path="res://Temp/NCSTemp/Bullet/bullet.tscn" id="3_s6aqj"]
 
-[node name="NCSTest" type="Node" node_paths=PackedStringArray("Player")]
+[node name="NCSTest" type="Node"]
 script = ExtResource("1_5uxxf")
-Player = NodePath("")
+
+[node name="Player" parent="." instance=ExtResource("2_k1gwt")]
+position = Vector2(698.437, 378.28)
+
+[node name="Bullet" parent="." instance=ExtResource("3_s6aqj")]
+position = Vector2(698, 392)
+
+[node name="GraphEdit" type="GraphEdit" parent="."]
+offset_right = 1137.0
+offset_bottom = 663.0
+scroll_offset = Vector2(-355, -138.85)
+
+[node name="GraphNode" type="GraphNode" parent="GraphEdit"]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 213.85
+offset_right = 705.0
+offset_bottom = 351.8499
+mouse_filter = 1
+position_offset = Vector2(179, 75)
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GraphEdit/GraphNode"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="GraphEdit/GraphNode/VBoxContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="GraphEdit/GraphNode/VBoxContainer"]
+layout_mode = 2
+text = "2"
+
+[node name="GraphNode2" type="GraphNode" parent="GraphEdit"]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 138.85
+offset_right = 471.0
+offset_bottom = 329.8499
+mouse_filter = 1
+
+[node name="GraphNode3" type="GraphNode" parent="GraphEdit"]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 138.85
+offset_right = 471.0
+offset_bottom = 329.8499
+mouse_filter = 1

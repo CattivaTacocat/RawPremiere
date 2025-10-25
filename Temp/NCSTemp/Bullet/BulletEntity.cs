@@ -15,7 +15,7 @@ public partial class BulletEntity : Node2D
     public override void _Ready()
     {
         Hurt.Attack.CurrentAtk = 10;
-        Hurt.Attack.CriticalRatio = 0.4f;
+        Hurt.Attack.CriticalRatio = 1f;
         Hurt.Attack.CriticalMultiplier = 1.5f;
     }
     #endregion

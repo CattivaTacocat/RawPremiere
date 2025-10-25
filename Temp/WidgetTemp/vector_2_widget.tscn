@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1rd6o2nro0sl"]
+
+[ext_resource type="PackedScene" uid="uid://ck2qivas3qt27" path="res://Temp/WidgetTemp/float_widget.tscn" id="1_qvgs4"]
+
+[node name="Vector2Widget" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="View" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="XWidget" parent="View" instance=ExtResource("1_qvgs4")]
+layout_mode = 1
+
+[node name="YWidget" parent="View" instance=ExtResource("1_qvgs4")]
+layout_mode = 1
