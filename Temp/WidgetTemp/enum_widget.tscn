@@ -13,7 +13,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="DisplayValue" type="OptionButton" parent="View"]
+[node name="Value" type="OptionButton" parent="View"]
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 20.0
