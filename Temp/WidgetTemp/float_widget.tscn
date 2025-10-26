@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://ck2qivas3qt27"]
+[gd_scene load_steps=2 format=3 uid="uid://ck2qivas3qt27"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_87tny"]
 
 [node name="FloatWidget" type="Control"]
 layout_mode = 3
@@ -8,20 +10,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="View" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Value" type="LineEdit" parent="View"]
+[node name="View" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_right = 68.5625
-offset_bottom = 31.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_87tny")
 
-[node name="Name" type="Label" parent="View"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="HBoxContainer" type="HBoxContainer" parent="View"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="View/HBoxContainer"]
+layout_mode = 2
+
+[node name="Value" type="LineEdit" parent="View/HBoxContainer"]
+layout_mode = 2
 
 [node name="Comp" type="Node" parent="."]
 

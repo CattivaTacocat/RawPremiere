@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ca5nj4cqx18lm"]
+[gd_scene load_steps=3 format=3 uid="uid://ca5nj4cqx18lm"]
 
 [ext_resource type="PackedScene" uid="uid://wgrft8ka0jdo" path="res://Temp/WidgetTemp/integer_widget.tscn" id="1_te5lv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_te5lv"]
 
 [node name="TimeWidget" type="Control"]
 layout_mode = 3
@@ -10,19 +12,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="View" type="Control" parent="."]
-anchors_preset = 0
+[node name="View" type="PanelContainer" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_te5lv")
 
-[node name="Minutes" parent="View" instance=ExtResource("1_te5lv")]
-layout_mode = 1
+[node name="HBoxContainer" type="HBoxContainer" parent="View"]
+layout_mode = 2
+theme_override_constants/separation = 75
 
-[node name="Seconds" parent="View" instance=ExtResource("1_te5lv")]
-layout_mode = 1
+[node name="Minutes" parent="View/HBoxContainer" instance=ExtResource("1_te5lv")]
+layout_mode = 2
 
-[node name="MillionSeconds" parent="View" instance=ExtResource("1_te5lv")]
-layout_mode = 1
+[node name="Seconds" parent="View/HBoxContainer" instance=ExtResource("1_te5lv")]
+layout_mode = 2
+
+[node name="MillionSeconds" parent="View/HBoxContainer" instance=ExtResource("1_te5lv")]
+layout_mode = 2
 
 [node name="Sys" type="Node" parent="."]
 

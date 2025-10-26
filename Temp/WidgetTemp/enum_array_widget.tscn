@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dvkx20aouubyf"]
+[gd_scene load_steps=3 format=3 uid="uid://dvkx20aouubyf"]
 
 [ext_resource type="PackedScene" uid="uid://c4e6dj7v6m5a6" path="res://Temp/WidgetTemp/enum_elem_widget.tscn" id="1_1oejd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1oejd"]
 
 [node name="EnumArrayWidget" type="Control"]
 layout_mode = 3
@@ -10,28 +12,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="View" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Name" type="Label" parent="View"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Enums" type="VBoxContainer" parent="View"]
+[node name="View" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1oejd")
 
-[node name="EnumElemWidget" parent="View/Enums" instance=ExtResource("1_1oejd")]
+[node name="HBoxContainer" type="HBoxContainer" parent="View"]
 layout_mode = 2
 
-[node name="Add" type="Button" parent="View"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Name" type="Label" parent="View/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Add" type="Button" parent="View/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Enums" type="VBoxContainer" parent="View/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="EnumElemWidget" parent="View/HBoxContainer/Enums" instance=ExtResource("1_1oejd")]
+layout_mode = 2
 
 [node name="Comp" type="Node" parent="."]
 

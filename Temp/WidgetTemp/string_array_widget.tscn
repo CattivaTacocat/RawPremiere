@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2u4o05f02ysc"]
+[gd_scene load_steps=3 format=3 uid="uid://d2u4o05f02ysc"]
 
 [ext_resource type="PackedScene" uid="uid://drbxkof6a7qs6" path="res://Temp/WidgetTemp/string_elem_widget.tscn" id="1_1doru"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1doru"]
 
 [node name="StringArrayWidget" type="Control"]
 layout_mode = 3
@@ -10,28 +12,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="View" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Name" type="Label" parent="View"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Strings" type="VBoxContainer" parent="View"]
+[node name="View" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_1doru")
 
-[node name="StringElemWidget" parent="View/Strings" instance=ExtResource("1_1doru")]
+[node name="HBoxContainer" type="HBoxContainer" parent="View"]
 layout_mode = 2
 
-[node name="Add" type="Button" parent="View"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Name" type="Label" parent="View/HBoxContainer"]
+layout_mode = 2
+
+[node name="Add" type="Button" parent="View/HBoxContainer"]
+layout_mode = 2
+
+[node name="Strings" type="VBoxContainer" parent="View/HBoxContainer"]
+layout_mode = 2
+
+[node name="StringElemWidget" parent="View/HBoxContainer/Strings" instance=ExtResource("1_1doru")]
+layout_mode = 2
 
 [node name="Comp" type="Node" parent="."]
 

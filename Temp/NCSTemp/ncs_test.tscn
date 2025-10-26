@@ -16,14 +16,13 @@ position = Vector2(698, 392)
 [node name="GraphEdit" type="GraphEdit" parent="."]
 offset_right = 1137.0
 offset_bottom = 663.0
-scroll_offset = Vector2(-355, -138.85)
 
 [node name="GraphNode" type="GraphNode" parent="GraphEdit"]
 layout_mode = 0
-offset_left = 534.0
-offset_top = 213.85
-offset_right = 705.0
-offset_bottom = 351.8499
+offset_left = 179.0
+offset_top = 75.0
+offset_right = 350.0
+offset_bottom = 212.99991
 mouse_filter = 1
 position_offset = Vector2(179, 75)
 slot/0/left_enabled = false
@@ -50,16 +49,12 @@ text = "2"
 
 [node name="GraphNode2" type="GraphNode" parent="GraphEdit"]
 layout_mode = 0
-offset_left = 355.0
-offset_top = 138.85
-offset_right = 471.0
-offset_bottom = 329.8499
+offset_right = 116.0
+offset_bottom = 190.99991
 mouse_filter = 1
 
 [node name="GraphNode3" type="GraphNode" parent="GraphEdit"]
 layout_mode = 0
-offset_left = 355.0
-offset_top = 138.85
-offset_right = 471.0
-offset_bottom = 329.8499
+offset_right = 116.0
+offset_bottom = 190.99991
 mouse_filter = 1
