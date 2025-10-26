@@ -9,7 +9,4 @@
     <PackageReference Include="Lombok.NET" Version="2.4.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Objects\" />
-  </ItemGroup>
 </Project>

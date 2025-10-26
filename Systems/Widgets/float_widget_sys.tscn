@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://buqdp570dvnes"]
+
+[ext_resource type="Script" uid="uid://geekbl7psm7o" path="res://Systems/Widgets/FloatWidgetSys.cs" id="1_80n1h"]
+
+[node name="FloatWidgetSys" type="Node"]
+script = ExtResource("1_80n1h")

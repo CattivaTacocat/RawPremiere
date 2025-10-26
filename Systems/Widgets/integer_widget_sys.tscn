@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfbppckl1efor"]
+
+[ext_resource type="Script" uid="uid://cmiptbkeeg63m" path="res://Systems/Widgets/IntegerWidgetSys.cs" id="1_looca"]
+
+[node name="IntegerWidgetSys" type="Node"]
+script = ExtResource("1_looca")

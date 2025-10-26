@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://blr0o150bu8yl"]
+
+[ext_resource type="Script" uid="uid://detl4nqeoyved" path="res://Systems/Inputs/KeyboardBoolWidgetSys.cs" id="1_nj767"]
+
+[node name="KeyboardBoolWidgetSys" type="Node"]
+script = ExtResource("1_nj767")

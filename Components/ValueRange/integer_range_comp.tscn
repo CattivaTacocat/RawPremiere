@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cadfkgpiohv2t"]
+
+[ext_resource type="Script" uid="uid://ck3jt6r2is8fq" path="res://Components/ValueRange/IntegerRangeComp.cs" id="1_xqeii"]
+
+[node name="IntegerRangeComp" type="Node"]
+script = ExtResource("1_xqeii")

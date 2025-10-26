@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b70difbhcr8lp"]
+
+[ext_resource type="Script" uid="uid://erv06rff7jsj" path="res://Components/Widgets/IntegerWidgetComp.cs" id="1_ukfly"]
+
+[node name="IntegerWidgetComp" type="Node"]
+script = ExtResource("1_ukfly")

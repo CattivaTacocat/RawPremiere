@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv0rn1jnhoxei"]
+
+[ext_resource type="Script" uid="uid://fmh3prjlm7or" path="res://Components/Widgets/BooleanWidgetComp.cs" id="1_bcyll"]
+
+[node name="BooleanWidgetComp" type="Node"]
+script = ExtResource("1_bcyll")

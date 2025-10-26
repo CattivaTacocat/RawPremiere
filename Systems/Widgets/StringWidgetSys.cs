@@ -7,6 +7,7 @@ namespace RawPremiere.Systems;
 public partial class StringWidgetSys : WidgetSys<string>
 {
     #region 组件
+    [Export] public StringWidgetComp WidgetComp { get; private set; }
     [Export] public ValueRangeComp<int> ValueRangeComp { get; private set; }
     #endregion
     #region 重写
@@ -22,5 +23,9 @@ public partial class StringWidgetSys : WidgetSys<string>
         WidgetComp.Value = v;
         WidgetComp.DisplayValue = v;
     }
+    
+    public override void SetCanUse(bool canUse) => WidgetComp.CanUse = canUse;
+
+    public override void SetVisibility(bool visibility) => WidgetComp.Visibility = visibility;
     #endregion
 }

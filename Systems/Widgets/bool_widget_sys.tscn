@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2yvnsv5qi865"]
+
+[ext_resource type="Script" uid="uid://dr76d68ke5efw" path="res://Systems/Widgets/BoolWidgetSys.cs" id="1_sk6du"]
+
+[node name="BoolWidgetSys" type="Node"]
+script = ExtResource("1_sk6du")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkbo8cfw0al2x"]
+
+[ext_resource type="Script" uid="uid://dummv0xu3wwwq" path="res://Components/MouseValueChange/MouseIntegerChangeComp.cs" id="1_brgj1"]
+
+[node name="MouseIntegerChangeComp" type="Node"]
+script = ExtResource("1_brgj1")

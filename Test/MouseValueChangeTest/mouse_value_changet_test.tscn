@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://kdch62u6lpug"]
+
+[ext_resource type="Script" uid="uid://c4dtiya2ru4sc" path="res://Test/MouseValueChangeTest/MouseValueChangetTest.cs" id="1_o10no"]
+[ext_resource type="PackedScene" uid="uid://dkbo8cfw0al2x" path="res://Components/MouseValueChange/mouse_integer_change_comp.tscn" id="2_chs7v"]
+[ext_resource type="PackedScene" uid="uid://b70difbhcr8lp" path="res://Components/Widgets/integer_widget_comp.tscn" id="3_njypp"]
+[ext_resource type="PackedScene" uid="uid://b1jjijfrwd63h" path="res://Systems/Inputs/mouse_integer_change_sys.tscn" id="4_o10no"]
+
+[node name="MouseValueChangetTest" type="Node" node_paths=PackedStringArray("WidgetComp")]
+script = ExtResource("1_o10no")
+WidgetComp = NodePath("IntegerWidgetComp")
+
+[node name="MouseIntegerChangeComp" parent="." instance=ExtResource("2_chs7v")]
+ShiftIncrement = 1
+CtrlIncrement = 10
+AltRatio = 5
+NormalIncrement = 3
+MouseChangeMethod = 2
+
+[node name="IntegerWidgetComp" parent="." instance=ExtResource("3_njypp")]
+
+[node name="MouseIntegerChangeSys" parent="." node_paths=PackedStringArray("WidgetComp", "MouseValueChangeComp") instance=ExtResource("4_o10no")]
+WidgetComp = NodePath("../IntegerWidgetComp")
+MouseValueChangeComp = NodePath("../MouseIntegerChangeComp")

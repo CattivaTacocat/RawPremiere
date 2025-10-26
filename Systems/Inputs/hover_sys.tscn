@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bagrc1s74pn41"]
+
+[ext_resource type="Script" uid="uid://kmm4kg8oan1d" path="res://Systems/Inputs/HoverSys.cs" id="1_1fdok"]
+
+[node name="HoverSys" type="Node"]
+script = ExtResource("1_1fdok")

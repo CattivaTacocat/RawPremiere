@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cctmdnmj70ny4"]
+
+[ext_resource type="Script" uid="uid://c1dac3ly3ayks" path="res://Components/PreviewComp.cs" id="1_relgu"]
+
+[node name="PreviewComp" type="Node"]
+script = ExtResource("1_relgu")

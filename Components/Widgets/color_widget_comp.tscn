@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg8vw4e4n441x"]
+
+[ext_resource type="Script" uid="uid://cd5qki0vd0m22" path="res://Components/Widgets/ColorWidgetComp.cs" id="1_xtoan"]
+
+[node name="ColorWidgetComp" type="Node"]
+script = ExtResource("1_xtoan")

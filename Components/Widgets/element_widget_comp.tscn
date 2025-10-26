@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqcj86xl156md"]
+
+[ext_resource type="Script" uid="uid://b1rnf6idh5g53" path="res://Components/Widgets/ElementWidgetComp.cs" id="1_02xvo"]
+
+[node name="ElementWidgetComp" type="Node"]
+script = ExtResource("1_02xvo")

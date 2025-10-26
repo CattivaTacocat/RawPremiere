@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbjrrm183a22"]
+
+[ext_resource type="Script" uid="uid://dvnw132nl7fg1" path="res://Components/MouseValueChange/MouseFloatChangeComp.cs" id="1_6c3p0"]
+
+[node name="MouseFloatChangeComp" type="Node"]
+script = ExtResource("1_6c3p0")

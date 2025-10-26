@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://3e1yaogbmbc0"]
+
+[ext_resource type="Script" uid="uid://c3ye70x2gtah5" path="res://Components/HoverComp.cs" id="1_yvrov"]
+
+[node name="HoverComp" type="Node"]
+script = ExtResource("1_yvrov")

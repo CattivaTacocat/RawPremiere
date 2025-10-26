@@ -5,24 +5,11 @@ namespace RawPremiere.Systems;
 
 public partial class WidgetSys<T> : Node
 {
-    #region 组件
-    [Export] public WidgetComp<T> WidgetComp;
-    #endregion
     #region 操作
-    public virtual void SetValue(T value)
-    {
-        WidgetComp.Value = value;
-        WidgetComp.DisplayValue = value.ToString();
-    }
+    public virtual void SetValue(T value) => GD.PrintErr("无实现");
 
-    public virtual void SetCanUse(bool canUse)
-    {
-        WidgetComp.CanUse = canUse;
-    }
+    public virtual void SetCanUse(bool canUse) => GD.PrintErr("无实现");
     
-    public virtual void SetVisibility(bool visibility)
-    {
-        WidgetComp.Visibility = visibility;
-    }
+    public virtual void SetVisibility(bool visibility) => GD.PrintErr("无实现");
     #endregion
 }

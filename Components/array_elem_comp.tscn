@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://2pye4sxqa18w"]
+
+[ext_resource type="Script" uid="uid://ctqwnspv67on7" path="res://Components/ArrayElemComp.cs" id="1_d6siv"]
+
+[node name="ArrayElemComp" type="Node"]
+script = ExtResource("1_d6siv")

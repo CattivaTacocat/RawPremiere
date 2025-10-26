@@ -7,6 +7,7 @@ namespace RawPremiere.Systems;
 public partial class ColorWidgetSys : WidgetSys<Color>
 {
     #region 组件
+    [Export] public ColorWidgetComp WidgetComp { get; private set; }
     [Export] public ValueRangeComp<float> RRangeComp { get; private set; }
     [Export] public ValueRangeComp<float> GRangeComp { get; private set; }
     [Export] public ValueRangeComp<float> BRangeComp { get; private set; }
@@ -24,5 +25,9 @@ public partial class ColorWidgetSys : WidgetSys<Color>
         WidgetComp.Value = v;
         WidgetComp.DisplayValue = v.ToHtml();
     }
+    
+    public override void SetCanUse(bool canUse) => WidgetComp.CanUse = canUse;
+
+    public override void SetVisibility(bool visibility) => WidgetComp.Visibility = visibility;
     #endregion
 }

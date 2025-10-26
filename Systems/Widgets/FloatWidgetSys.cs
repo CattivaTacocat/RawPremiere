@@ -8,6 +8,7 @@ namespace RawPremiere.Systems;
 public partial class FloatWidgetSys : WidgetSys<float>
 {
     #region 组件
+    [Export] public FloatWidgetComp WidgetComp { get; private set; }
     [Export] public StringFormatComp StringFormatComp { get; private set; }
     [Export] public ValueRangeComp<float> ValueRangeComp { get; private set; }
     #endregion
@@ -22,5 +23,9 @@ public partial class FloatWidgetSys : WidgetSys<float>
         WidgetComp.Value = v;
         WidgetComp.DisplayValue = v.ToString(StringFormatComp.Format);
     }
+    
+    public override void SetCanUse(bool canUse) => WidgetComp.CanUse = canUse;
+
+    public override void SetVisibility(bool visibility) => WidgetComp.Visibility = visibility;
     #endregion
 }

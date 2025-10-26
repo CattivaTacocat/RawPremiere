@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://sqgylpxyr18f"]
+
+[ext_resource type="Script" uid="uid://wep1g56fa5s7" path="res://Systems/Widgets/FileWidgetSys.cs" id="1_0ulq6"]
+
+[node name="FileWidgetSys" type="Node"]
+script = ExtResource("1_0ulq6")
