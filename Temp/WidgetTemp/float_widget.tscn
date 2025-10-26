@@ -13,7 +13,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="DisplayValue" type="LineEdit" parent="View"]
+[node name="Value" type="LineEdit" parent="View"]
 layout_mode = 0
 offset_right = 68.5625
 offset_bottom = 31.0
@@ -38,7 +38,5 @@ offset_bottom = 23.0
 [node name="FloatWidgetSys" type="Node" parent="Sys"]
 
 [node name="ExpressionSys" type="Node" parent="Sys"]
-
-[node name="FloatRestraintSys" type="Node" parent="Sys"]
 
 [node name="MouseValueChangeSys" type="Node" parent="Sys"]

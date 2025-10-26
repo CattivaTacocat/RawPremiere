@@ -35,6 +35,10 @@ folder_colors={
 "res://Test/": "gray"
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Configs/Language/language.de.translation", "res://Configs/Language/language.en.translation", "res://Configs/Language/language.ja.translation", "res://Configs/Language/language.ko.translation", "res://Configs/Language/language.zh_CN.translation", "res://Configs/Language/language.zh_TW.translation")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

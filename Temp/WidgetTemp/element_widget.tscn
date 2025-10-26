@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://yaffokaw8l2a"]
-
-[ext_resource type="PackedScene" uid="uid://cpfy8708jp1io" path="res://Temp/WidgetTemp/elements_select_popup.tscn" id="1_a7cgp"]
+[gd_scene format=3 uid="uid://yaffokaw8l2a"]
 
 [node name="ElementWidget" type="Control"]
 layout_mode = 3
@@ -35,8 +33,6 @@ offset_bottom = 23.0
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
-
-[node name="ElementsSelectPopup" parent="View" instance=ExtResource("1_a7cgp")]
 
 [node name="Comp" type="Node" parent="."]
 

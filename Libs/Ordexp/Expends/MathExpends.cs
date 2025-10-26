@@ -181,5 +181,82 @@ public static class MathExpends
 
     public static float Clamp01(this float value) => Math.Clamp(value, 0, 1);
     #endregion
+    #region 其他计算
+    /// <summary>
+    /// 考虑范围和步长的计算
+    /// </summary>
+    /// <param name="value">原数值</param>
+    /// <param name="min">最小值</param>
+    /// <param name="max">最大值</param>
+    /// <param name="step">步长</param>
+    /// <returns>返回结果</returns>
+    public static int CalcWithRangeStep(this int value, int min, int max, int step)
+    {
+        if (min > max) (min, max) = (max, min);
+        
+        if (step == 0 || value < min || value > max) return Math.Clamp(value, min, max);
+        
+        if (min * max > 0) return value / step * step;
+        var @base = value - min;
+        return @base / step * step + min;
+    }
+    
+    /// <summary>
+    /// 考虑范围和步长的计算
+    /// </summary>
+    /// <param name="value">原数值</param>
+    /// <param name="min">最小值</param>
+    /// <param name="max">最大值</param>
+    /// <param name="step">步长</param>
+    /// <returns>返回结果</returns>
+    public static long CalcWithRangeStep(this long value, long min, long max, long step)
+    {
+        if (min > max) (min, max) = (max, min);
+        
+        if (step == 0 || value < min || value > max) return Math.Clamp(value, min, max);
+        
+        if (min * max > 0) return value / step * step;
+        var @base = value - min;
+        return @base / step * step + min;
+    }
+    
+    /// <summary>
+    /// 考虑范围和步长的计算
+    /// </summary>
+    /// <param name="value">原数值</param>
+    /// <param name="min">最小值</param>
+    /// <param name="max">最大值</param>
+    /// <param name="step">步长</param>
+    /// <returns>返回结果</returns>
+    public static float CalcWithRangeStep(this float value, float min, float max, float step)
+    {
+        if (min > max) (min, max) = (max, min);
+        
+        if (step == 0 || value < min || value > max) return Math.Clamp(value, min, max);
+        
+        if (min * max > 0) return MathF.Truncate(value / step) * step;
+        var @base = value - min;
+        return MathF.Truncate(@base / step) * step + min;
+    }
+    
+    /// <summary>
+    /// 考虑范围和步长的计算
+    /// </summary>
+    /// <param name="value">原数值</param>
+    /// <param name="min">最小值</param>
+    /// <param name="max">最大值</param>
+    /// <param name="step">步长</param>
+    /// <returns>返回结果</returns>
+    public static double CalcWithRangeStep(this double value, double min, double max, double step)
+    {
+        if (min > max) (min, max) = (max, min);
+        
+        if (step == 0 || value < min || value > max) return Math.Clamp(value, min, max);
+        
+        if (min * max > 0) return Math.Truncate(value / step) * step;
+        var @base = value - min;
+        return Math.Truncate(@base / step) * step + min;
+    }
+    #endregion
     #endregion
 }

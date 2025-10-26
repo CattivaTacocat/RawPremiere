@@ -1,0 +1,352 @@
+布尔控件
+======================================================
+WidgetComp.OnValueChanged:
+-N_Value.IsPressed = v
+
+WidgetComp.OnDisplayValueChanged:
+-N_DisplayValue.Text = v
+
+WidgetComp.OnNameChanged:
+-N_Name.Text = v
+
+WidgetComp.OnCanUseChanged:
+-N_Value.Disable = !v
+
+WidgetComp.OnVisibilityChanged:
+-Visibility = v
+
+WidgetComp.OnToolTipChanged:
+-Tooltip = v
+------------------------------------------------------
+N_Value.Pressed:
+-BoolWidgetSys.SetValue(N_Value.IsPressed)
+======================================================
+颜色控件
+======================================================
+WidgetComp.OnValueChanged:
+-N_Value.Color = v
+
+WidgetComp.OnDisplayValueChanged:
+-N_DisplayValue.Text = v
+
+WidgetComp.OnNameChanged:
+-N_Name.Text = v
+
+WidgetComp.OnCanUseChanged:
+-N_Value.Disable = !v
+-N_DisplayValue.Disable = !v
+
+WidgetComp.OnVisibilityChanged:
+-Visibility = v
+
+WidgetComp.OnToolTipChanged:
+-Tooltip = v
+------------------------------------------------------
+N_Value.ColorChanged:
+-ColorWidgetSys.SetValue(N_Value.Color)
+
+N_DisplayValue.TextSubmitted:
+-var color = N_DisplayValue.Text.Color()
+-ColorWidgetSys.SetValue(color)
+======================================================
+元素引用控件
+======================================================
+WidgetComp.OnValueChanged:
+-N_Icon.Texture2D = v.ElementComp.Icon
+
+WidgetComp.OnDisplayValueChanged:
+-N_ElemName.Text = v
+
+WidgetComp.OnNameChanged:
+-N_Name.Text = v
+
+WidgetComp.OnCanUseChanged:
+-N_Value.Disable = !v
+-N_OpenElems.Disable = !v
+
+WidgetComp.OnVisibilityChanged:
+-Visibility = v
+
+WidgetComp.OnToolTipChanged:
+-Tooltip = v
+------------------------------------------------------
+N_OpenElems.Pressed:
+-PopupTool.PopElementsPopup(参数未知)
+
+PopupTool.ElementsPopup.OnSelected:
+-ElementWidgetSys.SetValue(v)
+======================================================
+枚举控件
+======================================================
+WidgetComp.OnValueChanged:
+-var idx = EnumComp.Index
+-N_Value.Selected = idx
+
+WidgetComp.OnNameChanged:
+-N_Name.Text = v
+
+WidgetComp.OnCanUseChanged:
+-N_Value.Disable = !v
+
+WidgetComp.OnVisibilityChanged:
+-Visibility = v
+
+WidgetComp.OnToolTipChanged:
+-Tooltip = v
+------------------------------------------------------
+N_Value.ItemSelected:
+-var @enum = EnumComp.Enums[v]
+-EnumWidgetSys.SetValue(@enum)
+======================================================
+枚举元素控件
+======================================================
+ArrayElemComp.OnIndexChanged:
+-N_Index.Text = v.ToString()
+------------------------------------------------------
+N_Remove.Pressed:
+-OnRemoveRequest?.Invoke(ArrayElemComp.Index)
+======================================================
+枚举数组控件
+======================================================
+WidgetComp.OnValueChanged:
+-N_Enums.ClearChildren()
+-foreach(var elem in v):
+--var widget = WidgetFactory.CreateEnumElemWidget(elem,index)
+--N_Enums.AddChild(widget)
+
+WidgetComp.OnNameChanged:
+-N_Name.Text = v
+
+WidgetComp.OnCanUseChanged:
+-N_Add.Disable = !v
+-foreach(var widget in N_Enums.GetChildren()):
+--widget.SetDisable(v)*
+
+WidgetComp.OnVisibilityChanged:
+-Visibility = v
+
+WidgetComp.OnToolTipChanged:
+-Tooltip = v
+------------------------------------------------------
+N_Add.Pressed:
+-ArrayWidgetUpdateSys.Add(default)
+
+OnRemoveRequest:
+-ArrayWidgetUpdateSys.RemoveAt(v)
+======================================================
+文件路径控件
+======================================================
+WidgetComp.OnDisplayValueChanged:
+-N_Value.Text = v
+
+WidgetComp.OnNameChanged:
+-N_Name.Text = v
+
+WidgetComp.OnCanUseChanged:
+-N_OpenFile.Disable = !v
+-N_Value.Disable = !v
+
+WidgetComp.OnVisibilityChanged:
+-Visibility = v
+
+WidgetComp.OnToolTipChanged:
+-Tooltip = v
+
+PreviewComp.OnTextureChanged:
+-Preview = v
+------------------------------------------------------
+N_Value.TextSubmitted:
+-StringWidgetSys.SetValue(v)
+-TextureFetchSys.SetValue(v)
+
+N_OpenFile.Pressed:
+-PopupTool.PopFileDialogPopup(参数未知)
+
+PopupTool.FileDialogPopup.OnSelected:
+-StringWidgetSys.SetValue(v)
+-TextureFetchSys.SetValue(v)
+======================================================
+实数控件
+======================================================
+WidgetComp.OnDisplayValueChanged:
+-N_Value.Text = v
+
+WidgetComp.OnNameChanged:
+-N_Name.Text = v
+
+WidgetComp.OnCanUseChanged:
+-N_Value.Disable = !v
+
+WidgetComp.OnVisibilityChanged:
+-Visibility = v
+
+WidgetComp.OnToolTipChanged:
+-Tooltip = v
+------------------------------------------------------
+N_Value.TextSubmitted:
+-float value
+-if (v.IsExpression()):
+--value = ExpressionSys.Calc(v)
+-else:
+--value = v
+-FloatRestraintSys.RestrictedValue(value)
+-FloatWidgetSys.SetValue(value)
+======================================================
+整数控件
+======================================================
+WidgetComp.OnDisplayValueChanged:
+-N_Value.Text = v
+
+WidgetComp.OnNameChanged:
+-N_Name.Text = v
+
+WidgetComp.OnCanUseChanged:
+-N_Value.Disable = !v
+
+WidgetComp.OnVisibilityChanged:
+-Visibility = v
+
+WidgetComp.OnToolTipChanged:
+-Tooltip = v
+------------------------------------------------------
+N_Value.TextSubmitted:
+-int value
+-if (v.IsExpression()):
+--value = ExpressionSys.Calc(v)
+-else:
+--value = v
+-IntegerRestraintSys.RestrictedValue(value)
+-IntegerWidgetSys.SetValue(value)
+======================================================
+行文本控件
+======================================================
+WidgetComp.OnDisplayValueChanged:
+-N_Value.Text = v
+
+WidgetComp.OnNameChanged:
+-N_Name.Text = v
+
+WidgetComp.OnCanUseChanged:
+-N_Value.Disable = !v
+
+WidgetComp.OnVisibilityChanged:
+-Visibility = v
+
+WidgetComp.OnToolTipChanged:
+-Tooltip = v
+------------------------------------------------------
+N_Value.TextSubmitted:
+-StringRestraintSys.RestrictedValue(v)
+-StringWidgetSys.SetValue(v)
+======================================================
+富文本控件
+======================================================
+WidgetComp.OnDisplayValueChanged:
+-N_Value.Text = v
+
+WidgetComp.OnNameChanged:
+-N_Name.Text = v
+
+WidgetComp.OnCanUseChanged:
+-N_Value.Disable = !v
+
+WidgetComp.OnVisibilityChanged:
+-Visibility = v
+
+WidgetComp.OnToolTipChanged:
+-Tooltip = v
+------------------------------------------------------
+N_Value.TextSubmitted:
+-StringRestraintSys.RestrictedValue(v)
+-StringWidgetSys.SetValue(v)
+======================================================
+滑条控件
+======================================================
+WidgetComp.OnValueChanged:
+-N_Value.Value = v
+
+WidgetComp.OnDisplayValueChanged:
+-N_DisplayValue.Text = v
+
+WidgetComp.OnNameChanged:
+-N_Name.Text = v
+
+WidgetComp.OnCanUseChanged:
+-N_Value.Disable = !v
+-N_DisplayValue.Disable = !v
+
+WidgetComp.OnVisibilityChanged:
+-Visibility = v
+
+WidgetComp.OnToolTipChanged:
+-Tooltip = v
+------------------------------------------------------
+N_DisplayValue.TextSubmitted:
+-float value
+-if (v.IsExpression()):
+--value = ExpressionSys.Calc(v)
+-else:
+--value = v
+-FloatRestraintSys.RestrictedValue(value)
+-FloatWidgetSys.SetValue(value)
+
+N_Value.ValueChanged:
+-FloatRestraintSys.RestrictedValue(value)
+-FloatWidgetSys.SetValue(value)
+======================================================
+字符串元素控件
+======================================================
+ArrayElemComp.OnIndexChanged:
+-Index.Text = v.ToString()
+------------------------------------------------------
+N_Remove.Pressed:
+-OnRemoveRequest?.Invoke(ArrayElemComp.Index)
+======================================================
+字符串数组控件
+======================================================
+WidgetComp.OnValueChanged:
+-N_Strings.ClearChildren()
+-foreach(var elem in v):
+--var widget = WidgetFactory.CreateStringElemWidget(elem,index)
+--N_Enums.AddChild(widget)
+
+WidgetComp.OnNameChanged:
+-N_Name.Text = v
+
+WidgetComp.OnCanUseChanged:
+-N_Add.Disable = !v
+-foreach(var widget in N_Enums.GetChildren()):
+--widget.SetDisable(v)*
+
+WidgetComp.OnVisibilityChanged:
+-Visibility = v
+
+WidgetComp.OnToolTipChanged:
+-Tooltip = v
+------------------------------------------------------
+N_Add.Pressed:
+-ArrayWidgetUpdateSys.Add(default)
+
+OnRemoveRequest:
+-ArrayWidgetUpdateSys,RemoveAt(v)
+======================================================
+时间控件
+======================================================
+N_Minutes.ValueSubmitted:
+-IntegerLoopSysM.LoopValue(v)
+
+N_Seconds.ValueSubmitted:
+-IntegerLoopSysS.LoopValue(v)
+
+N_MillionSeconds.ValueSubmitted:
+-IntegerLoopSysMS.LoopValue(v)
+======================================================
+向量控件
+======================================================
+无
+======================================================
+所有控件实体必须带上
+======================================================
+WidgetComp.OnValueChanged:
+-OnValueChanged?.Invoke(v)
+======================================================

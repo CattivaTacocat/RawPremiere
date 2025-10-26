@@ -23,7 +23,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="HSlider" type="HSlider" parent="View"]
+[node name="Value" type="HSlider" parent="View"]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 16.0
@@ -43,7 +43,5 @@ offset_bottom = 16.0
 [node name="FloatWidgetSys" type="Node" parent="Sys"]
 
 [node name="ExpressionSys" type="Node" parent="Sys"]
-
-[node name="FloatRestraintSys" type="Node" parent="Sys"]
 
 [node name="MouseValueChangeSys" type="Node" parent="Sys"]

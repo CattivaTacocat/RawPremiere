@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://b070utoni4ewc"]
+[gd_scene load_steps=2 format=3 uid="uid://b070utoni4ewc"]
+
+[ext_resource type="Script" uid="uid://dr76d68ke5efw" path="res://Systems/Widgets/BoolWidgetSys.cs" id="1_1h5bk"]
 
 [node name="BooleanWidget" type="Control"]
 layout_mode = 3
@@ -37,6 +39,7 @@ offset_bottom = 23.0
 [node name="Sys" type="Node" parent="."]
 
 [node name="BoolWidgetSys" type="Node" parent="Sys"]
+script = ExtResource("1_1h5bk")
 
 [node name="KeyboardBoolSys" type="Node" parent="Sys"]
 

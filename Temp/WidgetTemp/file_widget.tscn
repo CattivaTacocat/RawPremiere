@@ -13,7 +13,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="DisplayValue" type="LineEdit" parent="View"]
+[node name="Value" type="LineEdit" parent="View"]
 layout_mode = 0
 offset_right = 68.5625
 offset_bottom = 31.0
@@ -28,7 +28,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Texture" type="TextureRect" parent="View"]
+[node name="Preview" type="TextureRect" parent="View"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -37,8 +37,8 @@ offset_bottom = 40.0
 
 [node name="WidgetComp" type="Node" parent="Comp"]
 
+[node name="PreviewComp" type="Node" parent="Comp"]
+
 [node name="Sys" type="Node" parent="."]
 
-[node name="StringWidgetSys" type="Node" parent="Sys"]
-
-[node name="TextureFetchSys" type="Node" parent="Sys"]
+[node name="FileWidgetSys" type="Node" parent="Sys"]

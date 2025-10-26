@@ -13,7 +13,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="DisplayValue" type="TextEdit" parent="View"]
+[node name="Value" type="TextEdit" parent="View"]
 layout_mode = 0
 offset_right = 164.0
 offset_bottom = 149.0
@@ -32,5 +32,3 @@ offset_bottom = 23.0
 [node name="Sys" type="Node" parent="."]
 
 [node name="StringWidgetSys" type="Node" parent="Sys"]
-
-[node name="StringRestraintSys" type="Node" parent="Sys"]

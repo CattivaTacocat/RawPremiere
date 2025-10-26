@@ -15,12 +15,17 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="View"]
+[node name="Name" type="Label" parent="View"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Strings" type="VBoxContainer" parent="View"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="StringElemWidget" parent="View/VBoxContainer" instance=ExtResource("1_1doru")]
+[node name="StringElemWidget" parent="View/Strings" instance=ExtResource("1_1doru")]
 layout_mode = 2
 
 [node name="Add" type="Button" parent="View"]
@@ -36,4 +41,4 @@ offset_bottom = 8.0
 
 [node name="StringArraySys" type="Node" parent="Sys"]
 
-[node name="ArrayUpdateSys" type="Node" parent="Sys"]
+[node name="ArrayWidgetUpdateSys" type="Node" parent="Sys"]

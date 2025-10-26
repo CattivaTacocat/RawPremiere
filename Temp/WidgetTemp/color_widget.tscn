@@ -43,11 +43,3 @@ offset_bottom = 23.0
 [node name="Sys" type="Node" parent="."]
 
 [node name="ColorWidgetSys" type="Node" parent="Sys"]
-
-[node name="FloatRestraintSysR" type="Node" parent="Sys"]
-
-[node name="FloatRestraintSysG" type="Node" parent="Sys"]
-
-[node name="FloatRestraintSysB" type="Node" parent="Sys"]
-
-[node name="FloatRestraintSysA" type="Node" parent="Sys"]

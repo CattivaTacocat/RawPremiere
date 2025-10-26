@@ -5,11 +5,11 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Components\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
-  <ItemGroup>
+    <PackageReference Include="GodotSharp.SourceGenerators" Version="2.7.0-251025-1634.Release" />
     <PackageReference Include="Lombok.NET" Version="2.4.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Objects\" />
   </ItemGroup>
 </Project>
