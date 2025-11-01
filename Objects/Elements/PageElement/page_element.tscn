@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://yekfx5gjvvi2"]
+
+[ext_resource type="Script" uid="uid://cjpnggivv3m0b" path="res://Objects/Elements/PageElement/PageElement.cs" id="1_hudmt"]
+[ext_resource type="PackedScene" uid="uid://dpt3x7v6147tb" path="res://Objects/Elements/Entities/environment_entity.tscn" id="2_p0rlb"]
+[ext_resource type="Script" uid="uid://dp6dnwq4hehbw" path="res://Components/Elements/ElementInfoComp.cs" id="2_sl5j1"]
+[ext_resource type="Script" uid="uid://ck5pq7704vs48" path="res://Components/Elements/EnvironmentComp.cs" id="3_xb3wb"]
+[ext_resource type="Script" uid="uid://dpd8tnxoh13id" path="res://Components/Elements/PageComp.cs" id="4_p0rlb"]
+[ext_resource type="Script" uid="uid://bvrhjjp7m3l44" path="res://Components/Elements/CartesianCoordinateComp.cs" id="6_sw1wo"]
+[ext_resource type="Script" uid="uid://bd2q4rb8wc3eg" path="res://Components/Elements/ScaleComp.cs" id="7_nlexw"]
+[ext_resource type="Script" uid="uid://b27pknwnx84md" path="res://Components/Elements/SimpleRotationComp.cs" id="8_0w54g"]
+
+[node name="PageElement" type="CanvasLayer" node_paths=PackedStringArray("ElementInfoComp", "EnvironmentComp", "PageComp", "CartesianCoordinateComp", "ScaleComp", "SimpleRotationComp")]
+follow_viewport_enabled = true
+script = ExtResource("1_hudmt")
+ElementInfoComp = NodePath("Comp/ElementInfoComp")
+EnvironmentComp = NodePath("Comp/EnvironmentComp")
+PageComp = NodePath("Comp/PageComp")
+CartesianCoordinateComp = NodePath("Comp/CartesianCoordinateComp")
+ScaleComp = NodePath("Comp/ScaleComp")
+SimpleRotationComp = NodePath("Comp/SimpleRotationComp")
+
+[node name="EnvironmentEntity" parent="." node_paths=PackedStringArray("EnvironmentComp") instance=ExtResource("2_p0rlb")]
+EnvironmentComp = NodePath("../Comp/EnvironmentComp")
+
+[node name="Comp" type="Node" parent="."]
+
+[node name="ElementInfoComp" type="Node" parent="Comp" node_paths=PackedStringArray("RelatedNode")]
+script = ExtResource("2_sl5j1")
+RelatedNode = NodePath("../..")
+
+[node name="EnvironmentComp" type="Node" parent="Comp"]
+script = ExtResource("3_xb3wb")
+
+[node name="PageComp" type="Node" parent="Comp"]
+script = ExtResource("4_p0rlb")
+
+[node name="CartesianCoordinateComp" type="Node" parent="Comp"]
+script = ExtResource("6_sw1wo")
+
+[node name="ScaleComp" type="Node" parent="Comp"]
+script = ExtResource("7_nlexw")
+
+[node name="SimpleRotationComp" type="Node" parent="Comp"]
+script = ExtResource("8_0w54g")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3mju3y3xgkmu"]
+
+[ext_resource type="Script" uid="uid://pcq3wqnpnwuu" path="res://Objects/Elements/SimpleElement/SimpleElement.cs" id="1_7bt48"]
+
+[node name="SimpleElement" type="Node"]
+script = ExtResource("1_7bt48")

@@ -5,13 +5,13 @@ using RawPremiere.Objects.Elements;
 
 namespace RawPremiere.Systems;
 
-public partial class ElementWidgetSys : WidgetSys<SimpleElement>
+public partial class ElementWidgetSys : WidgetSys<IElement>
 {
     #region 组件
     [Export] public ElementWidgetComp WidgetComp { get; private set; }
     #endregion
     #region 重写
-    public override void SetValue(SimpleElement value)
+    public override void SetValue(IElement value)
     {
         WidgetComp.Value = value;
         WidgetComp.DisplayValue = value.ElementInfoComp.ElementName;

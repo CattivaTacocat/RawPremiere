@@ -13,7 +13,7 @@ public partial class PropSyncComp : Node
     }
     #endregion
     #region 属性
-    [Notify,Export] public SimpleElement Following { get => _following.Get(); set => _following.Set(value); }
+    [Notify] public IElement Following { get => _following.Get(); set => _following.Set(value); }
     [Notify,Export] public string[] SyncProps { get => _syncProps.Get(); set => _syncProps.Set(value); }
     #endregion
 }

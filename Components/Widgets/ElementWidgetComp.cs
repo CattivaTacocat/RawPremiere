@@ -4,7 +4,7 @@ using RawPremiere.Objects.Elements;
 
 namespace RawPremiere.Components;
 
-public partial class ElementWidgetComp : WidgetComp<SimpleElement>
+public partial class ElementWidgetComp : WidgetComp<IElement>
 {
-    [Notify,Export] public override SimpleElement Value { get => _value.Get(); set => _value.Set(value); }
+    [Notify] public override IElement Value { get => _value.Get(); set => _value.Set(value); }
 }

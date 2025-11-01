@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpt3x7v6147tb"]
+
+[ext_resource type="Script" uid="uid://qceq5ey0jesw" path="res://Objects/Elements/Entities/EnvironmentEntity.cs" id="1_wjv65"]
+
+[sub_resource type="Gradient" id="Gradient_wjv65"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_l5jsd"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_wjv65")
+
+[sub_resource type="Gradient" id="Gradient_0dfix"]
+resource_local_to_scene = true
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_un728"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_0dfix")
+
+[sub_resource type="Environment" id="Environment_dxcjb"]
+resource_local_to_scene = true
+background_mode = 3
+background_canvas_max_layer = 1
+glow_enabled = true
+glow_levels/1 = 16.0
+glow_levels/2 = 8.0
+glow_levels/3 = 4.0
+glow_levels/4 = 2.0
+glow_normalized = true
+glow_intensity = 1.0
+glow_blend_mode = 1
+glow_map = SubResource("GradientTexture1D_un728")
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture1D_l5jsd")
+
+[node name="EnvironmentEntity" type="WorldEnvironment"]
+environment = SubResource("Environment_dxcjb")
+script = ExtResource("1_wjv65")
