@@ -14,7 +14,7 @@ public partial class ElementWidgetSys : WidgetSys<SimpleElement>
     public override void SetValue(SimpleElement value)
     {
         WidgetComp.Value = value;
-        WidgetComp.DisplayValue = value.ElementComp.ElementName;
+        WidgetComp.DisplayValue = value.ElementInfoComp.ElementName;
     }
     
     public override void SetCanUse(bool canUse) => WidgetComp.CanUse = canUse;
