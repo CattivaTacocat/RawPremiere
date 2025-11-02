@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using DeadDog.Ordexp;
 using Godot;
 
 namespace DeadDog.Nodeo.Tools;
 
-public class MathTool
+public static class MathTool
 {
     #region 处理
     #region 贝塞尔
@@ -48,6 +50,43 @@ public class MathTool
         return cntPoints[0];
     }
     #endregion
+    #region 变形
+    public static Transform2D Transform2DAs3D(this Transform2D origin, Vector3 rot, Vector2 pos,Vector2 sca)
+    {
+        var rf = 90f.DegToRad();
+        var m = new Transform2D(0, Vector2.One, 0, pos);
+        var s = new Transform2D(0, sca, 0, Vector2.Zero);
+        var ms = m * s;
+        
+        var x = new Transform2D(0, Vector2.One, rot.X, Vector2.Zero);
+        var y = new Transform2D(rf, Vector2.One, rot.Y, Vector2.Zero);
+        var z = new Transform2D(rot.Z, Vector2.One, 0, Vector2.Zero);
+        var fix = new Transform2D(-rf, Vector2.One, 0, Vector2.Zero);
+        var r = x * y * z * fix;
+
+        if (!ms.IsInvertible()) ms = ms.AddEpsilon();
+        if (!r.IsInvertible()) r = r.AddEpsilon();
+
+        return origin * ms * r;
+    }
     
+    public static Transform2D Transform2DAs3DDeg(this Transform2D origin, Vector3 rot, Vector2 pos,Vector2 sca)
+    {
+        var rotX = rot.X.DegToRad();
+        var rotY = rot.Y.DegToRad();
+        var rotZ = rot.Z.DegToRad();
+        return origin.Transform2DAs3D(new Vector3(rotX, rotY, rotZ), pos, sca);
+    }
+
+    public static bool IsInvertible(this Transform2D origin,float epsilon = 1e-6f) => 
+        float.Abs(origin.Determinant()) > epsilon;
+
+    public static Transform2D AddEpsilon(this Transform2D t, float epsilon = 1e-3f) =>
+        new(
+            new(t.X.X + epsilon, t.X.Y + epsilon),
+            new(t.Y.X + epsilon, t.Y.Y + epsilon),
+            t.Origin
+        );
+    #endregion
     #endregion
 }

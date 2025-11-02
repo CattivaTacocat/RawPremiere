@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://du12jnft6kx1r"]
 
-[ext_resource type="PackedScene" uid="uid://yekfx5gjvvi2" path="res://Objects/Elements/PageElement/page_element.tscn" id="1_css7n"]
-[ext_resource type="Texture2D" uid="uid://kfb542ock155" path="res://Libs/Nodeo/Assets/Sprites/spr_end-point.svg" id="2_1xr46"]
+[ext_resource type="PackedScene" uid="uid://dyco62oqmpuq5" path="res://Objects/Elements/PlatformElement/platform_element.tscn" id="1_4kftn"]
+[ext_resource type="Script" uid="uid://ceq7tha8dd7j5" path="res://Test/ElementsTest/ElementsTest.cs" id="1_css7n"]
 
-[node name="ElementsTest" type="Node"]
+[node name="ElementsTest" type="Node" node_paths=PackedStringArray("PlatformElement", "ShapeEntity")]
+script = ExtResource("1_css7n")
+PlatformElement = NodePath("PlatformElement")
+ShapeEntity = NodePath("PlatformElement/CartesianTransformEntity/ShapeEntity")
 
-[node name="PageElement" parent="." instance=ExtResource("1_css7n")]
-
-[node name="Sprite2D" type="Sprite2D" parent="PageElement"]
-position = Vector2(335, 259)
-texture = ExtResource("2_1xr46")
+[node name="PlatformElement" parent="." instance=ExtResource("1_4kftn")]

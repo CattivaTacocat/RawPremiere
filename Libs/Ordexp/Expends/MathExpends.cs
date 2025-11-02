@@ -33,7 +33,7 @@ public static class MathExpends
     /// <returns>计算结果</returns>
     public static int LoopAdd(this int origin, int loop, int add)
     {
-        add = add % loop;
+        add %= loop;
         return (origin + add + loop) % loop;
     }
     /// <summary>
@@ -47,7 +47,7 @@ public static class MathExpends
     /// <returns>计算结果</returns>
     public static long LoopAdd(this long origin, long loop, long add)
     {
-        add = add % loop;
+        add %= loop;
         return (origin + add + loop) % loop;
     }
     /// <summary>
@@ -61,7 +61,7 @@ public static class MathExpends
     /// <returns>计算结果</returns>
     public static float LoopAdd(this float origin, float loop, float add)
     {
-        add = add % loop;
+        add %= loop;
         return (origin + add + loop) % loop;
     }
     /// <summary>
@@ -92,7 +92,7 @@ public static class MathExpends
     public static int LoopAdd(this int origin,int loopStart, int loopEnd, int add)
     {
         var loop = loopEnd - loopStart;
-        add = add % loop;
+        add %= loop;
         return (origin + add + loop) % loop + loopStart;
     }
     /// <summary>
@@ -124,7 +124,7 @@ public static class MathExpends
     public static float LoopAdd(this float origin, float loopStart, float loopEnd, float add)
     {
         var loop = loopEnd - loopStart;
-        add = add % loop;
+        add %= loop;
         return (origin + add + loop) % loop + loopStart;
     }
     /// <summary>
@@ -140,8 +140,40 @@ public static class MathExpends
     public static double LoopAdd(this double origin, double loopStart, double loopEnd, double add)
     {
         var loop = loopEnd - loopStart;
-        add = add % loop;
+        add %= loop;
         return (origin + add + loop) % loop + loopStart;
+    }
+
+    /// <summary>
+    /// 环计算
+    /// 把输入的值假想是放入一串数字环中，当原值超过最大值，超出的部分会从最小值开始重新加入超出值，反之从最大值开始计算
+    /// </summary>
+    /// <param name="origin">原数据</param>
+    /// <param name="ringStart">环开始</param>
+    /// <param name="ringEnd">环结束</param>
+    /// <returns>环内值</returns>
+    public static int Ring(this int origin, int ringStart, int ringEnd)
+    {
+        if (ringEnd < ringStart) (ringStart, ringEnd) = (ringEnd, ringStart);
+        var ring = ringEnd - ringStart;
+        var offset = (origin - ringStart + ring) % ring;
+        return offset > 0 ? ringStart + offset : ringEnd + offset;
+    }
+
+    /// <summary>
+    /// 环计算
+    /// 把输入的值假想是放入一串数字环中，当原值超过最大值，超出的部分会从最小值开始重新加入超出值，反之从最大值开始计算
+    /// </summary>
+    /// <param name="origin">原数据</param>
+    /// <param name="ringStart">环开始</param>
+    /// <param name="ringEnd">环结束</param>
+    /// <returns>环内值</returns>
+    public static float Ring(this float origin, float ringStart, float ringEnd)
+    {
+        if (ringEnd < ringStart) (ringStart, ringEnd) = (ringEnd, ringStart);
+        var ring = ringEnd - ringStart;
+        var offset = (origin - ringStart + ring) % ring;
+        return offset > 0 ? ringStart + offset : ringEnd + offset;
     }
     #endregion
     #region 数值转换
@@ -180,6 +212,12 @@ public static class MathExpends
     }
 
     public static float Clamp01(this float value) => Math.Clamp(value, 0, 1);
+
+    public static Vector2 RadToVector2(float rad, float length)
+    {
+        var util = Vector2.FromAngle(rad);
+        return util * length;
+    }
     #endregion
     #region 其他计算
     /// <summary>

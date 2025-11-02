@@ -2,6 +2,7 @@
 
 public enum ShapeEnum
 {
+    Unknown,
     Triangle,
     Rectangle,
     Pentagon,

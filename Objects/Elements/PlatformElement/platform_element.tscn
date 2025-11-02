@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://dyco62oqmpuq5"]
+
+[ext_resource type="PackedScene" uid="uid://dmb36nyvd0pi5" path="res://Objects/Elements/Entities/cartesian_transform_entity.tscn" id="1_3rafm"]
+[ext_resource type="Script" uid="uid://bvrhjjp7m3l44" path="res://Components/Elements/CartesianCoordinateComp.cs" id="1_bn6is"]
+[ext_resource type="Script" uid="uid://bj3tnjak6sqbj" path="res://Objects/Elements/PlatformElement/PlatformElement.cs" id="1_via8l"]
+[ext_resource type="Script" uid="uid://dp6dnwq4hehbw" path="res://Components/Elements/ElementInfoComp.cs" id="1_yspr2"]
+[ext_resource type="Script" uid="uid://ltwxnirfi1g8" path="res://Components/Elements/CompleteRotationComp.cs" id="2_b8500"]
+[ext_resource type="PackedScene" uid="uid://c82fi2k0pvs0j" path="res://Objects/Elements/Entities/shape_entity.tscn" id="2_via8l"]
+[ext_resource type="Script" uid="uid://bd2q4rb8wc3eg" path="res://Components/Elements/ScaleComp.cs" id="3_dflhp"]
+[ext_resource type="Script" uid="uid://ujwuaiiro4tf" path="res://Components/Elements/ShapeComp.cs" id="3_gq340"]
+
+[node name="PlatformElement" type="Node2D" node_paths=PackedStringArray("ElementInfo", "CartesianCoordinate", "ScaleComp", "CompleteRotation", "Shape")]
+script = ExtResource("1_via8l")
+ElementInfo = NodePath("Comp/ElementInfoComp")
+CartesianCoordinate = NodePath("Comp/CartesianCoordinateComp")
+ScaleComp = NodePath("Comp/ScaleComp")
+CompleteRotation = NodePath("Comp/CompleteRotationComp")
+Shape = NodePath("Comp/ShapeComp")
+
+[node name="CartesianTransformEntity" parent="." node_paths=PackedStringArray("CartesianCoordinateComp", "ScaleComp", "CompleteRotationComp", "ChildTransform") instance=ExtResource("1_3rafm")]
+CartesianCoordinateComp = NodePath("../Comp/CartesianCoordinateComp")
+ScaleComp = NodePath("../Comp/ScaleComp")
+CompleteRotationComp = NodePath("../Comp/CompleteRotationComp")
+ChildTransform = NodePath("ShapeEntity")
+
+[node name="ShapeEntity" parent="CartesianTransformEntity" node_paths=PackedStringArray("ShapeComp") instance=ExtResource("2_via8l")]
+ShapeComp = NodePath("../../Comp/ShapeComp")
+
+[node name="Comp" type="Node" parent="."]
+
+[node name="ElementInfoComp" type="Node" parent="Comp" node_paths=PackedStringArray("RelatedNode")]
+script = ExtResource("1_yspr2")
+RelatedNode = NodePath("../..")
+
+[node name="CartesianCoordinateComp" type="Node" parent="Comp"]
+script = ExtResource("1_bn6is")
+
+[node name="ScaleComp" type="Node" parent="Comp"]
+script = ExtResource("3_dflhp")
+Scale = Vector2(1, 1)
+
+[node name="CompleteRotationComp" type="Node" parent="Comp"]
+script = ExtResource("2_b8500")
+
+[node name="ShapeComp" type="Node" parent="Comp"]
+script = ExtResource("3_gq340")
+Shape = 2
+CollisionType = 1
