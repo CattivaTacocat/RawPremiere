@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DeadDog.Nodeo.Structures;
 using DeadDog.Ordexp;
 using Godot;
 
@@ -87,6 +88,39 @@ public static class MathTool
             new(t.Y.X + epsilon, t.Y.Y + epsilon),
             t.Origin
         );
+    #endregion
+    #region 坐标
+    public static Polar2 ToPolar2(this Vector2 v) => Polar2.FromVector2(v);
+
+    /// <summary>
+    /// 从笛卡尔坐标系转换成极坐标系
+    /// </summary>
+    public static Vector2 FromCartesianAsPolar(this Vector2 v)
+    {
+        var r = float.Sqrt(v.X * v.X + v.Y * v.Y);
+        var t = float.Atan2(v.Y, v.X);
+        return new Vector2(r,t);
+    }
+
+    /// <summary>
+    /// 从极坐标系转换成笛卡尔坐标系
+    /// </summary>
+    public static Vector2 FromPolarAsCartesian(this Vector2 v)
+    {
+        var x = v.X * float.Cos(v.Y);
+        var y = v.X * float.Sin(v.Y);
+        return new Vector2(x, y);
+    }
+
+    /// <summary>
+    /// 从角度制极坐标系转换成笛卡尔坐标系
+    /// </summary>
+    public static Vector2 FromDegPolarAsCartesian(this Vector2 v)
+    {
+        var x = v.X * float.Cos(v.Y.DegToRad());
+        var y = v.X * float.Sin(v.Y.DegToRad());
+        return new Vector2(x, y);
+    }
     #endregion
     #endregion
 }

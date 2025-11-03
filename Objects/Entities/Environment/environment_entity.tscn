@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dpt3x7v6147tb"]
 
-[ext_resource type="Script" uid="uid://qceq5ey0jesw" path="res://Objects/Elements/Entities/EnvironmentEntity.cs" id="1_wjv65"]
+[ext_resource type="Script" uid="uid://qceq5ey0jesw" path="res://Objects/Entities/Environment/EnvironmentEntity.cs" id="1_wjv65"]
 
 [sub_resource type="Gradient" id="Gradient_wjv65"]
 

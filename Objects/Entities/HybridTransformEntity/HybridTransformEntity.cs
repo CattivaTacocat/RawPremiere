@@ -1,22 +1,22 @@
 using Godot;
 using System;
+using DeadDog.Nodeo.Structures;
 using DeadDog.Nodeo.Tools;
 using DeadDog.Ordexp;
 using DeadDog.RawPremiere.Standards;
+using RawPremiere.Components;
 using RawPremiere.Components.Elements;
 
-public partial class CartesianTransformEntity : Node2D
+public partial class HybridTransformEntity : Node2D
 {
     #region 组件
-    [Notify,Export] public CartesianCoordinateComp CartesianCoordinateComp { get => _cartesianCoordinateComp.Get(); set => _cartesianCoordinateComp.Set(value); }
+    [Notify,Export] public HybridCoordinateDegComp HybridCoordinateComp { get => _hybridCoordinateComp.Get(); set => _hybridCoordinateComp.Set(value); }
     [Notify,Export] public ScaleComp ScaleComp { get => _scaleComp.Get(); set => _scaleComp.Set(value); }
     [Notify,Export] public CompleteRotationComp CompleteRotationComp { get => _completeRotationComp.Get(); set => _completeRotationComp.Set(value); }
+    [Notify,Export] public GlobalTransformComp GlobalTransformComp { get => _globalTransformComp.Get(); set => _globalTransformComp.Set(value); }
     #endregion
     #region 节点
     [Notify,Export] public Node2D ChildTransform { get => _childTransform.Get(); set => _childTransform.Set(value); }
-    #endregion
-    #region 字段
-    [Export] private Transform2D OTransform;
     #endregion
     #region 创建
     public override void _Ready()
@@ -27,11 +27,14 @@ public partial class CartesianTransformEntity : Node2D
     
     private void InitEvents()
     {
-        CartesianCoordinateComp.PositionChanged += OnTransformChanged;
+        HybridCoordinateComp.ParamsChanged += OnTransformChanged;
+        HybridCoordinateComp.IsPolarChanged += OnTransformChanged;
         ScaleComp.ScaleChanged += OnTransformChanged;
         CompleteRotationComp.RotationChanged += OnTransformChanged;
         CompleteRotationComp.PivotChanged += OnPivotChanged;
-        CartesianCoordinateCompChanged += RespondAll;
+        GlobalTransformComp.IsGlobalChanged += OnTransformChanged;
+        ChildTransformChanged += OnPivotChanged;
+        HybridCoordinateCompChanged += RespondAll;
         ScaleCompChanged += RespondAll;
         CompleteRotationCompChanged += RespondAll;
     }
@@ -44,11 +47,14 @@ public partial class CartesianTransformEntity : Node2D
     
     private void DestroyEvents()
     {
-        CartesianCoordinateComp.PositionChanged -= OnTransformChanged;
+        HybridCoordinateComp.ParamsChanged -= OnTransformChanged;
+        HybridCoordinateComp.IsPolarChanged -= OnTransformChanged;
         ScaleComp.ScaleChanged -= OnTransformChanged;
         CompleteRotationComp.RotationChanged -= OnTransformChanged;
         CompleteRotationComp.PivotChanged -= OnPivotChanged;
-        CartesianCoordinateCompChanged -= RespondAll;
+        GlobalTransformComp.IsGlobalChanged -= OnTransformChanged;
+        ChildTransformChanged -= OnPivotChanged;
+        HybridCoordinateCompChanged -= RespondAll;
         ScaleCompChanged -= RespondAll;
         CompleteRotationCompChanged -= RespondAll;
     }
@@ -62,12 +68,13 @@ public partial class CartesianTransformEntity : Node2D
 
     private void OnTransformChanged()
     {
-        Transform = Transform2D.Identity.Transform2DAs3DDeg(
+        var t = Transform2D.Identity.Transform2DAs3DDeg(
             CompleteRotationComp.Rotation,
-            CartesianCoordinateComp.Position * GlobalUnit.UNIT_LENGTH,
+            HybridCoordinateComp.Position * GlobalUnit.UNIT_LENGTH,
             ScaleComp.Scale
         );
-        OTransform = Transform;
+        if (GlobalTransformComp.IsGlobal) GlobalTransform = t;
+        else Transform = t;
     }
     
     private void OnPivotChanged()
@@ -76,10 +83,7 @@ public partial class CartesianTransformEntity : Node2D
             ChildTransform.Position = CompleteRotationComp.Pivot * -GlobalUnit.UNIT_HALF_LENGTH;
     }
     #endregion
-    #region 测试
-    public override void _Process(double delta)
-    {
-        // GD.Print(Scale);
-    }
+    #region 操作
+    public void Update() => RespondAll();
     #endregion
 }

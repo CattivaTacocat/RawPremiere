@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0wihwpm7rdj6"]
+
+[ext_resource type="Script" uid="uid://f11b7ssgsje7" path="res://Objects/Entities/PolarTransform/PolarTransformEntity.cs" id="1_ut577"]
+
+[node name="PolarTransformEntity" type="Node2D"]
+script = ExtResource("1_ut577")

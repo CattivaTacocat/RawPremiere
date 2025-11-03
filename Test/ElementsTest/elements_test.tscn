@@ -1,11 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://du12jnft6kx1r"]
 
-[ext_resource type="PackedScene" uid="uid://dyco62oqmpuq5" path="res://Objects/Elements/PlatformElement/platform_element.tscn" id="1_4kftn"]
+[ext_resource type="PackedScene" uid="uid://dyco62oqmpuq5" path="res://Objects/Elements/ShapeElement/shape_element.tscn" id="1_4kftn"]
 [ext_resource type="Script" uid="uid://ceq7tha8dd7j5" path="res://Test/ElementsTest/ElementsTest.cs" id="1_css7n"]
 
-[node name="ElementsTest" type="Node" node_paths=PackedStringArray("PlatformElement", "ShapeEntity")]
+[node name="ElementsTest" type="Node" node_paths=PackedStringArray("ShapeElement")]
 script = ExtResource("1_css7n")
-PlatformElement = NodePath("PlatformElement")
-ShapeEntity = NodePath("PlatformElement/CartesianTransformEntity/ShapeEntity")
+ShapeElement = NodePath("ShapeElement")
 
-[node name="PlatformElement" parent="." instance=ExtResource("1_4kftn")]
+[node name="ShapeElement" parent="." instance=ExtResource("1_4kftn")]

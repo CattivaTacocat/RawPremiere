@@ -11,25 +11,23 @@ namespace DeadDog.Nodeo.Structures;
 public struct Polar2 : IEquatable<Polar2>
 {
     /// <summary>极径（长度），非负</summary>
-    public double R { get; }
+    public float R { get; }
 
     /// <summary>极角（弧度），范围通常为 [0, 2π)</summary>
-    public double T { get; }
+    public float T { get; }
 
     /// <summary>构造：r >= 0；theta 会被规范化到 [0, 2π)</summary>
-    public Polar2(double r, double theta)
+    public Polar2(float r, float theta)
     {
-        if (r < 0) throw new ArgumentOutOfRangeException(nameof(r), "极径必须非负。");
-
         R = r;
-        T = NormalizeAngle(theta);
+        T = theta;
     }
 
     /// <summary>从直角坐标构造（x, y）</summary>
-    public static Polar2 FromCartesian(double x, double y)
+    public static Polar2 FromCartesian(float x, float y)
     {
-        var r = Math.Sqrt(x * x + y * y);
-        var theta = r.Equals(0) ? 0 : Math.Atan2(y, x);
+        var r = float.Sqrt(x * x + y * y);
+        var theta = float.Atan2(y, x);
         return new Polar2(r, theta);
     }
 
@@ -47,11 +45,11 @@ public struct Polar2 : IEquatable<Polar2>
 
     /// <summary>从 Vector2 隐式构造</summary>
     public static implicit operator Polar2(Vector2 v) => FromVector2(v);
-
+    
     /// <summary>规范化角度到 [0, 2π)</summary>
-    public static double NormalizeAngle(double angle)
+    public static float NormalizeAngle(float angle)
     {
-        const double TwoPi = 2 * Math.PI;
+        const float TwoPi = 2 * float.Pi;
         var a = angle % TwoPi;
         if (a < 0) a += TwoPi;
         return a;
@@ -72,13 +70,14 @@ public struct Polar2 : IEquatable<Polar2>
         return HashCode.Combine(R, a);
     }
 
-    public override string ToString() => $"Polar2(R={R:F3}, Theta={T:F3} rad ≈ {Math.Round(Rad2Deg(T), 1)}°)";
+    public override string ToString() => $"Polar2(R={R:F3}, Theta={T:F3} rad ≈ {Math.Round(RadToDeg(T), 1)}°)";
 
     /// <summary>弧度转角度的便捷方法</summary>
-    public static double Rad2Deg(double rad) => rad * (180.0 / Math.PI);
+    public float RadToDeg(float rad) => rad * (180f / float.Pi);
 
     /// <summary>角度转弧度的便捷方法</summary>
-    public static double Deg2Rad(double deg) => deg * (Math.PI / 180.0);
+    public float DegToRad(float deg) => deg * (float.Pi / 180f);
+    
     public static bool operator ==(Polar2 left, Polar2 right)
     {
         return left.Equals(right);

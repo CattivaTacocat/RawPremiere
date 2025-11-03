@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c82fi2k0pvs0j"]
 
-[ext_resource type="Script" uid="uid://bwppq7oe20213" path="res://Objects/Elements/Entities/ShapeEntity.cs" id="1_leoxf"]
+[ext_resource type="Script" uid="uid://bwppq7oe20213" path="res://Objects/Entities/Shape/ShapeEntity.cs" id="1_leoxf"]
 
 [node name="ShapeEntity" type="Polygon2D" node_paths=PackedStringArray("Collision", "Area", "StaticBody")]
 script = ExtResource("1_leoxf")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dmb36nyvd0pi5"]
 
-[ext_resource type="Script" uid="uid://c64ouut42ajg4" path="res://Objects/Elements/Entities/CartesianTransformEntity.cs" id="1_43vy7"]
+[ext_resource type="Script" uid="uid://c64ouut42ajg4" path="res://Objects/Entities/CartesianTransform/CartesianTransformEntity.cs" id="1_43vy7"]
 
 [node name="CartesianTransformEntity" type="Node2D"]
 script = ExtResource("1_43vy7")
