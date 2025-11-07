@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://dpndfxoeruhk0"]
+[gd_scene load_steps=4 format=3 uid="uid://dpndfxoeruhk0"]
 
-[node name="SerialTextureEntity" type="Sprite2D"]
+[ext_resource type="Script" uid="uid://cxnqybf1kshyu" path="res://Objects/Entities/SerialTextureEntity/SerialTextureEntity.cs" id="1_4wn6u"]
+[ext_resource type="Script" uid="uid://dg5j1p0wh2l6u" path="res://Components/Elements/SerialTextureComp.cs" id="2_gvdyt"]
+[ext_resource type="Script" uid="uid://cs5c037j2ix3k" path="res://Systems/Elements/SerialTextureSys.cs" id="3_t0s22"]
+
+[node name="SerialTextureEntity" type="Sprite2D" node_paths=PackedStringArray("SerialTextureComp")]
+region_enabled = true
+script = ExtResource("1_4wn6u")
+SerialTextureComp = NodePath("SerialTextureComp")
+
+[node name="SerialTextureComp" type="Node" parent="."]
+script = ExtResource("2_gvdyt")
+GridCount = Vector2i(4, 4)
+ClipRange = Rect2i(0, 0, 128, 128)
+FPS = 10
+
+[node name="SerialTextureSys" type="Node" parent="." node_paths=PackedStringArray("Comp", "Timer")]
+script = ExtResource("3_t0s22")
+Comp = NodePath("../SerialTextureComp")
+Timer = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="SerialTextureSys"]
+autostart = true
